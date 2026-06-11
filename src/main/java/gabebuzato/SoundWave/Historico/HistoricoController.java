@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/historico")
 public class HistoricoController {
     // Post /historico
-    @PostMapping
-    public String adicionarAoHistorico(MusicaModel musica){
 
-    }
 
     // get /historico?usuarioId
 }

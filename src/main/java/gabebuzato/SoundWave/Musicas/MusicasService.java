@@ -1,10 +1,6 @@
 package gabebuzato.SoundWave.Musicas;
 
 import gabebuzato.SoundWave.exceptions.RecursoNaoEncontradoException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Optional;
 
@@ -23,7 +19,7 @@ public class MusicasService {
         Optional<MusicaModel> musica = musicasRepository.findById(id);
         return musicasRepository.findById(id)
                 .map(musicasMapper::map)
-                .orElseThrow(() -> new RecursoNaoEncontradoException("Música com ID " + id + " não encontrada"));
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Música com ID " + id + " não encontrada")); //Retorna um novo erro de um tipo já padronizado
     }
 
     public MusicasDTO adicionarMusica(MusicasDTO musicasDTO) {

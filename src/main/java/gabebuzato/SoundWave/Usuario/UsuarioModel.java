@@ -4,11 +4,15 @@ import gabebuzato.SoundWave.Historico.HistoricoModel;
 import gabebuzato.SoundWave.Musicas.generos;
 import gabebuzato.SoundWave.Playlist.PlaylistModel;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class UsuarioModel {
 
     @Id
