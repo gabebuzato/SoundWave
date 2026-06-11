@@ -15,31 +15,25 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @Entity
-@Table (name = "tb_playlists")
+@Table(name = "tb_playlists")
 public class PlaylistModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
-
-    @Column
-    private List<MusicaModel> musica = new ArrayList<>();
-
-    @Column
-    private double tempoTotal;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private UsuarioModel usuario;
 
     @ManyToMany
-    @JoinTable (
-    name = "tb_playlist_musicas",
-    joinColumns = @JoinColumn(name = "playlist_id"),
-    inverseJoinColumns = @JoinColumn(name = "musica_id")
+    @JoinTable(
+            name = "tb_playlist_musicas",
+            joinColumns = @JoinColumn(name = "playlist_id"),
+            inverseJoinColumns = @JoinColumn(name = "musica_id")
     )
     private List<MusicaModel> musicas = new ArrayList<>();
 
@@ -62,7 +56,6 @@ public class PlaylistModel {
     public double getTempoTotal() {
         return musicas.stream()
                 .mapToDouble(MusicaModel::getDuracao)
-                .sum(); // soma a duração de todas as músicas para ser exibida pelo service
+                .sum();
     }
-
 }

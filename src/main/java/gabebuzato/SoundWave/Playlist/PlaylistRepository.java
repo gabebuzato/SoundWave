@@ -1,4 +1,6 @@
 package gabebuzato.SoundWave.Playlist;
 
-public interface PlaylistRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PlaylistRepository extends JpaRepository<PlaylistModel, Long> {
 }
